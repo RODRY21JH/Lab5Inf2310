@@ -1,1 +1,10 @@
 EJERCICIOS DE UTUMNO
+LEVEL 0
+Iniciamos con el comando ssh utumno0@utumno.labs.overthewire.org -p 2227 la contraseña es utumno0
+usamos utumno0@utumno:/utumno$ file ./utumno0 
+Despues de todo utilizamos una variable LD_PRELOAD y exploramos el codigo
+recibimos el siguiente mensaje printf("%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x.%08x\n");
+nos dio 3 dirrecciones 08048402  080484a5 08048490
+las ejecutamos printf("%s\n", 0x08048402);	printf("%s\n", 0x080484a5);	printf("%s\n", 0x08048490);
+el resultado fue 
+contraseña-. aathaeyiew
