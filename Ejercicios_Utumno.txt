@@ -83,3 +83,18 @@ $ cat /etc/utumno_pass/utumno5
 woucaejiek
 La contraseña es woucaejiek
 
+LEVEL 4->5
+Ingresamos ssh utumno5@utumno.labs.overthewire.org -p 2227
+Contraseña: woucaejiek
+nos da un codigo casi similar a los anteriores , reusamos nuestro antiguo codigo execve("/utumno/utumno5", NULL, NULL);
+agregamos unas variables de entorno como A,B,C,D,E.....
+SE IMPRIMIO EL DECIMO ARGUMRNTO, entonces desbordamos la variale y sobreescribi la dirreccion de retorno en EEEE Y AGREGUE UNA SHELLCODE en el 9no valor , luego usamos  0xffffdf8ccomo dirección de retorno , compilamos el codigo y obtenemos nuestra shell
+utumno5@utumno:/tmp/ax$ gcc -m32 code.c -o code
+utumno5@utumno:/tmp/ax$ ./code
+Here we go - AAAABBBBCCCCDDDD����
+$ whoami
+utumno6
+$ cat /etc/utumno_pass/utumno6
+eiluquieth
+La contraseña fue o es .: eiluquieth
+
