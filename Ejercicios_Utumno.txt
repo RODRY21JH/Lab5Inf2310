@@ -109,4 +109,17 @@ $ cat /etc/utumno_pass/utumno7
 totiquegae
 La contraseña es ::totiquegae
 
+LEVEL 6->7
+INGRESAMOS ssh utumno7@utumno.labs.overthewire.org -p 2227
+Pase: totiquegae
+DEL CODDIGO desbordamos la dirreccion de retorno y agregamos bytes al bufffer,
+colocamos una shellcode eestrandar y encontrasmos una dirreccion de retorno, escribi una scrip bash para obtener la shell y nos dio 
+...[removed]...
 
+lol ulrich && fuck hector
+$ whoami
+utumno8
+$ cat /etc/utumno_pass/utumno8
+jaeyeetiav
+solo puse la parte final xq era muy alrgo
+La contraseña es:  jaeyeetiav
