@@ -1,5 +1,9 @@
 EJERCICIOS DE UTUMNO
 LEVEL 0
+La contraseña es utumno0
+
+LEVEL 0->1
+
 Iniciamos con el comando ssh utumno0@utumno.labs.overthewire.org -p 2227 la contraseña es utumno0
 usamos utumno0@utumno:/utumno$ file ./utumno0 
 Despues de todo utilizamos una variable LD_PRELOAD y exploramos el codigo
@@ -9,7 +13,7 @@ las ejecutamos printf("%s\n", 0x08048402);	printf("%s\n", 0x080484a5);	printf("%
 el resultado fue 
 contraseña-. aathaeyiew
 
-LEVEL 0->1
+LEVEL 1->2
 Ingresamos con ssh utumno1@utumno.labs.overthewire.org -p 2227
 Contraseña: aathaeyiew
 nos dio un codigo y al ejecuatarlo nos dio utumno1@utumno:/tmp/ax$ touch sh_AAAAAAAAAAAAAAAA
@@ -27,7 +31,7 @@ $ cat /etc/utumno_pass/utumno2
 ceewaceiph
 LA CONTRASEÑA HALLADA FUE ; ceewaceiph
 
-LEVEL 1->2
+LEVEL 2->3
 Ingresamo con ssh utumno2@utumno.labs.overthewire.org -p 2227
 Contraseña: ceewaceiph
 al entrar nos da numeros binarios, usamos execve() para que ejecute el programa , creamos una matris con 11 valores de acuerdo a los numeros que nos dio, escirbimos una shellcode  que nos da 
@@ -61,7 +65,7 @@ zuudafiine
 $
 LA CONTRASEÑÑA HALLADA FUE : zuudafiine
 
-LEVEL 2->3
+LEVEL 3->4
 Ingresamos ssh utumno3@utumno.labs.overthewire.org -p 2227
 Contraseña: zuudafiine
 nos dio un codigo con varios numeros b . sobreescribimos el ultio byte de la dirreccion 0x86 en 0xffffd68c, luego calculamos la dirrecion y escribimos la carga util en la porimera parte y nos solto 
@@ -72,7 +76,7 @@ creamos una variable donde estara la shellcode y encontrasmos la dirreccion adec
 oogieleoga
 LA CONTRASEÑA QUE ENCONTRAMOS ES:: oogieleoga
 
-LEVEL 3->4
+LEVEL 4->5
 Ingresamos con ssh utumno4@utumno.labs.overthewire.org -p 2227
 Contraseña: oogieleoga
 nos dio varios numeros como en el anterior level , carganmos una shellcode y buscanos una dirreccion de retorno usamos 0xfffed660 y nos da
@@ -83,7 +87,7 @@ $ cat /etc/utumno_pass/utumno5
 woucaejiek
 La contraseña es woucaejiek
 
-LEVEL 4->5
+LEVEL 5->6
 Ingresamos ssh utumno5@utumno.labs.overthewire.org -p 2227
 Contraseña: woucaejiek
 nos da un codigo casi similar a los anteriores , reusamos nuestro antiguo codigo execve("/utumno/utumno5", NULL, NULL);
@@ -98,7 +102,7 @@ $ cat /etc/utumno_pass/utumno6
 eiluquieth
 La contraseña fue o es .: eiluquieth
 
-LEVEL 5->6
+LEVEL 6->7
 ENTRAMOS ssh utumno6@utumno.labs.overthewire.org -p 2227
 Contraseña: eiluquieth
 nos dio un tipo de almacenamiento valor de clave , el codigp realiza una convgersion de los argumentos ,,entonces usamos el segundo argumento como dirreccion de retorno, tomamos un valor que sea valido como 0xffffd628 y exportamos una shellcode  con un sled nop,, encontramos la  dirreccion de la sled y la ponemos como 3er argumento y finalmente añadimos bytes al 2do argm para tener las shell y nos da de resultado 
@@ -109,7 +113,7 @@ $ cat /etc/utumno_pass/utumno7
 totiquegae
 La contraseña es ::totiquegae
 
-LEVEL 6->7
+LEVEL 7->8
 INGRESAMOS ssh utumno7@utumno.labs.overthewire.org -p 2227
 Pase: totiquegae
 DEL CODDIGO desbordamos la dirreccion de retorno y agregamos bytes al bufffer,
